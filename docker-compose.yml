@@ -4,7 +4,7 @@ services:
     image: tectonic
     container_name: cassiofernando-cv
     working_dir: "/cassiofernando-cv"
-    user: 1000:1000
+    # user: 1000:1000
     command: sh compile.sh
     volumes:
       - ./:/cassiofernando-cv
