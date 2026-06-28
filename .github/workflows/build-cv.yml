@@ -1,0 +1,37 @@
+name: Build and Upload CVs
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build and compile CVs using Docker Compose
+        run: |
+          docker compose up --build
+
+      - name: Rename and prepare artifacts
+        run: |
+          mv cv/en/cassio-fernando-cv.pdf cassio-fernando-cv.en.pdf
+          mv cv/pt-br/cassio-fernando-cv.pdf cassio-fernando-cv.pt-br.pdf
+
+      - name: Upload English CV
+        uses: actions/upload-artifact@v4
+        with:
+          name: cassio-fernando-cv.en.pdf
+          path: cassio-fernando-cv.en.pdf
+
+      - name: Upload Portuguese CV
+        uses: actions/upload-artifact@v4
+        with:
+          name: cassio-fernando-cv.pt-br.pdf
+          path: cassio-fernando-cv.pt-br.pdf
