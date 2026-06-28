@@ -1,0 +1,13 @@
+services:
+  cassio-fernando-cv:
+    container_name: cassio-fernando-cv
+    build: .
+    image: tectonic
+    working_dir: "/cassio-fernando-cv"
+    user: 1000:1000
+    command: sh compile.sh
+    volumes:
+      - ./:/cassio-fernando-cv
+    environment:
+      - XDG_CONFIG_HOME=/cassio-fernando-cv/.tectonic
+      - XDG_CACHE_HOME=/cassio-fernando-cv/.tectonic
