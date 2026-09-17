@@ -21,17 +21,17 @@ jobs:
 
       - name: Rename and prepare artifacts
         run: |
-          mv cv/en/cassio-fernando-cv.pdf cassio-fernando-cv.en.pdf
-          mv cv/pt-br/cassio-fernando-cv.pdf cassio-fernando-cv.pt-br.pdf
+          mv cv/en/cassiofernando-cv.pdf cassiofernando-cv.en.pdf
+          mv cv/pt-br/cassiofernando-cv.pdf cassiofernando-cv.pt-br.pdf
 
       - name: Upload English CV
         uses: actions/upload-artifact@v4
         with:
-          name: cassio-fernando-cv.en.pdf
-          path: cassio-fernando-cv.en.pdf
+          name: cassiofernando-cv.en.pdf
+          path: cassiofernando-cv.en.pdf
 
       - name: Upload Portuguese CV
         uses: actions/upload-artifact@v4
         with:
-          name: cassio-fernando-cv.pt-br.pdf
-          path: cassio-fernando-cv.pt-br.pdf
+          name: cassiofernando-cv.pt-br.pdf
+          path: cassiofernando-cv.pt-br.pdf
